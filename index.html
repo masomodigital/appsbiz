@@ -27,8 +27,7 @@
         }
 
         table {
-            width: 80%; /* Adjusted the width of the table */
-            margin: 20px auto; /* Centered the table */
+            width: auto;
             border-collapse: collapse;
             margin-top: 20px;
         }
@@ -67,35 +66,75 @@
             height: 2.5cm;
         }
 
-        #signUpSection,
-        #afterSignUpParagraph,
-        #resaleAppSection,
-        #helpSection {
+        #commentDisplay {
+            font-size: 10px;
+            background-color: white; /* Add white background to comments */
+            padding: 5px; /* Add padding for better visibility */
+        }
+
+        #getStartedSection {
             text-align: center;
             margin: 20px;
         }
 
-        #signUpButton,
-        #resaleAppButton,
-        #whatsappButton {
+        #getStartedButton {
+            background-color: red;
+            color: white;
             padding: 15px 30px;
             font-size: 16px;
             cursor: pointer;
             border: none;
             border-radius: 5px;
-            color: white;
+        }
+
+        #signUpSection {
+            text-align: center;
+            margin: 20px;
         }
 
         #signUpButton {
             background-color: red;
+            color: white;
+            padding: 15px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #afterSignUpParagraph {
+            text-align: center;
+            margin: 20px;
+        }
+
+        #resaleAppSection {
+            text-align: center;
+            margin: 20px;
         }
 
         #resaleAppButton {
             background-color: green;
+            color: white;
+            padding: 15px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #helpSection {
+            text-align: center;
+            margin: 20px;
         }
 
         #whatsappButton {
             background-color: blue;
+            color: white;
+            padding: 15px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -135,6 +174,12 @@
             CBC Digital is registered as a business with certificate number BN-5XCXXGAQ. Since the platform was highlighted by The Standard Media in December 2023, scores of Kenyans have been making great income by installing and activating the app to parents countrywide. We are still open to bringing on board more app installers and activators. All you are required to have is a smartphone with good internet access.
         </span>
     </p>
+
+    <!-- Get Started Section -->
+    <div id="getStartedSection">
+        <h2>Get trained for 10-15 minutes and START WORKING NOW!</h2>
+        <button id="getStartedButton" onclick="redirectToWhatsApp()" aria-label="Get Started">CLICK HERE TO GET STARTED!</button>
+    </div>
 
     <!-- Sign Up Section -->
     <div id="signUpSection">
