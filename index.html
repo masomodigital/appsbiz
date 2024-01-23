@@ -86,6 +86,21 @@
             border: none;
             border-radius: 5px;
         }
+
+        #signUpSection {
+            text-align: center;
+            margin: 20px;
+        }
+
+        #signUpButton {
+            background-color: red;
+            color: white;
+            padding: 15px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -121,8 +136,7 @@
 
     <p style="text-align: justify;">
         <span lang="en-US" style="font-size: 12pt; font-weight: bold;">
-            CBC Digital is registered as a business with certificate number BN-5XCXXGAQ. Since the platform was highlighted by The Standard Media in December 2023, scores of Kenyans have been making great income by installing and activating the app to parents countrywide.
-            We are still open to bringing on board more app installers and activators. All you are required to have is a smartphone with good internet access.
+            CBC Digital is registered as a business with certificate number BN-5XCXXGAQ. Since the platform was highlighted by The Standard Media in December 2023, scores of Kenyans have been making great income by installing and activating the app to parents countrywide. We are still open to bringing on board more app installers and activators. All you are required to have is a smartphone with good internet access.
         </span>
     </p>
 
@@ -130,6 +144,12 @@
     <div id="getStartedSection">
         <h2>Get trained for 10-15 minutes and START WORKING NOW!</h2>
         <button id="getStartedButton" onclick="redirectToWhatsApp()" aria-label="Get Started">CLICK HERE TO GET STARTED!</button>
+    </div>
+
+    <!-- Sign Up Section -->
+    <div id="signUpSection">
+        <h2>Sign Up And Get Started Right Now!</h2>
+        <button id="signUpButton" onclick="redirectToSignUp()">SIGN UP NOW</button>
     </div>
 
     <script>
@@ -210,6 +230,11 @@
         // Function to redirect to WhatsApp link
         function redirectToWhatsApp() {
             window.location.href = 'https://masomodigital.github.io/getstarted/';
+        }
+
+        // Function to redirect to Sign Up link
+        function redirectToSignUp() {
+            window.location.href = 'https://paystack.com/pay/app-activator';
         }
     </script>
 
