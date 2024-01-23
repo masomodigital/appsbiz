@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>CBC DIGITAL APPS BUSINESS</title>
     <!-- Add the following lines for favicon -->
     <link rel="icon" href="CBC-BUSINESS-LOGO.ico" type="image/x-icon">
     <link rel="shortcut icon" href="CBC-BUSINESS-LOGO.ico" type="image/x-icon">
     <style>
         body {
-            font-family: Lato;
+            font-family: 'Lato', sans-serif;
             margin: 0;
             overflow-y: scroll; /* Enable vertical scrolling */
         }
@@ -97,7 +98,7 @@
 
     <p>
         <span lang="en-US" style="font-size: 12pt; font-weight: bold;">
-            Welcome to CBC DIGITAL APPS BUSINESS. You will earn Ksh.100 per each CBC DIGITAL APPLICATION installation and activation.
+            Welcome to CBC DIGITAL APPS BUSINESS. You will earn Ksh.50 per each CBC DIGITAL APP installation and activation.
         </span>
     </p>
 
@@ -128,7 +129,7 @@
     <!-- Get Started Section -->
     <div id="getStartedSection">
         <h2>Get trained for 10-15 minutes and START WORKING NOW!</h2>
-        <button id="getStartedButton" onclick="redirectToWhatsApp()">CLICK HERE TO GET STARTED!</button>
+        <button id="getStartedButton" onclick="redirectToWhatsApp()" aria-label="Get Started">CLICK HERE TO GET STARTED!</button>
     </div>
 
     <script>
@@ -181,7 +182,7 @@
 
             nameCell.textContent = activator.name;
             installationsCell.textContent = activator.installations;
-            earningsCell.innerHTML = `<span class="earnings">Ksh. ${numberWithCommas(activator.installations * 100)}.00</span>`;
+            earningsCell.innerHTML = `<span class="earnings">Ksh. ${numberWithCommas(activator.installations * 50)}.00</span>`;
 
             // Move to the next activator
             currentIndex = (currentIndex + 1) % activators.length;
