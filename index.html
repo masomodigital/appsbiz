@@ -106,6 +106,21 @@
             text-align: center;
             margin: 20px;
         }
+
+        #resaleAppSection {
+            text-align: center;
+            margin: 20px;
+        }
+
+        #resaleAppButton {
+            background-color: green;
+            color: white;
+            padding: 15px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -162,6 +177,11 @@
         <p>
             After sign up, you will get access to CBC Digital and Life Transformers libraries. You will also be approved to resale the app and earn up to 50% of the app activation fee.
         </p>
+    </div>
+
+    <!-- Resale App Section -->
+    <div id="resaleAppSection">
+        <button id="resaleAppButton" onclick="redirectToResale()">Resale App & Make Sh.50 Now!</button>
     </div>
 
     <script>
@@ -248,6 +268,11 @@
         function redirectToSignUp() {
             window.location.href = 'https://paystack.com/pay/app-activator';
         }
+
+        // Function to redirect to Resale App link
+        function redirectToResale() {
+            window.location.href = 'https://masomodigital.github.io/sellapps/';
+        }
     </script>
 
     <!-- Alphabet Learning Section Script -->
@@ -282,4 +307,3 @@
     </script>
 </body>
 </html>
-
