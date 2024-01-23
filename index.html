@@ -177,17 +177,16 @@
                 table.deleteRow(0);
             }
 
-            // Add new activators to the table
-            activators.forEach(activator => {
-                const newRow = table.insertRow();
-                const nameCell = newRow.insertCell(0);
-                const installationsCell = newRow.insertCell(1);
-                const earningsCell = newRow.insertCell(2);
+            // Add a new activator to the table
+            const activator = activators[currentIndex];
+            const newRow = table.insertRow();
+            const nameCell = newRow.insertCell(0);
+            const installationsCell = newRow.insertCell(1);
+            const earningsCell = newRow.insertCell(2);
 
-                nameCell.textContent = activator.name;
-                installationsCell.textContent = activator.installations;
-                earningsCell.innerHTML = `<span class="earnings">Ksh. ${numberWithCommas(activator.installations * 50)}.00</span>`;
-            });
+            nameCell.textContent = activator.name;
+            installationsCell.textContent = activator.installations;
+            earningsCell.innerHTML = `<span class="earnings">Ksh. ${numberWithCommas(activator.installations * 50)}.00</span>`;
 
             // Move to the next activator
             currentIndex = (currentIndex + 1) % activators.length;
@@ -241,7 +240,7 @@
 
         // Function to redirect to WhatsApp link
         function redirectToWhatsApp() {
-            window.location.href = 'https://wa.me/0752412457';
+            window.location.href = 'https://wa.me/254752412457';
         }
 
         // Function to redirect to Sign Up link
@@ -287,4 +286,5 @@
     </script>
 </body>
 </html>
+
 
