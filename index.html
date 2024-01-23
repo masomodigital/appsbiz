@@ -27,7 +27,8 @@
         }
 
         table {
-            width: auto;
+            width: 80%; /* Adjusted the width of the table */
+            margin: 20px auto; /* Centered the table */
             border-collapse: collapse;
             margin-top: 20px;
         }
@@ -66,75 +67,35 @@
             height: 2.5cm;
         }
 
-        #commentDisplay {
-            font-size: 10px;
-            background-color: white; /* Add white background to comments */
-            padding: 5px; /* Add padding for better visibility */
-        }
-
-        #getStartedSection {
-            text-align: center;
-            margin: 20px;
-        }
-
-        #getStartedButton {
-            background-color: red;
-            color: white;
-            padding: 15px 30px;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-        }
-
-        #signUpSection {
-            text-align: center;
-            margin: 20px;
-        }
-
-        #signUpButton {
-            background-color: red;
-            color: white;
-            padding: 15px 30px;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-        }
-
-        #afterSignUpParagraph {
-            text-align: center;
-            margin: 20px;
-        }
-
-        #resaleAppSection {
-            text-align: center;
-            margin: 20px;
-        }
-
-        #resaleAppButton {
-            background-color: green;
-            color: white;
-            padding: 15px 30px;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-        }
-
+        #signUpSection,
+        #afterSignUpParagraph,
+        #resaleAppSection,
         #helpSection {
             text-align: center;
             margin: 20px;
         }
 
+        #signUpButton,
+        #resaleAppButton,
         #whatsappButton {
-            background-color: blue;
-            color: white;
             padding: 15px 30px;
             font-size: 16px;
             cursor: pointer;
             border: none;
             border-radius: 5px;
+            color: white;
+        }
+
+        #signUpButton {
+            background-color: red;
+        }
+
+        #resaleAppButton {
+            background-color: green;
+        }
+
+        #whatsappButton {
+            background-color: blue;
         }
     </style>
 </head>
@@ -154,11 +115,14 @@
 
     <!-- Earnings Table -->
     <table id="earnings-table">
-        <tr>
-            <th>Name of Activator</th>
-            <th>No. of Installations</th>
-            <th>Earnings Today (Ksh.)</th>
-        </tr>
+        <thead>
+            <tr>
+                <th>Name of Activator</th>
+                <th>No. of Installations</th>
+                <th>Earnings Today (Ksh.)</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
     </table>
 
     <!-- Alphabet Learning Section -->
@@ -174,12 +138,6 @@
             CBC Digital is registered as a business with certificate number BN-5XCXXGAQ. Since the platform was highlighted by The Standard Media in December 2023, scores of Kenyans have been making great income by installing and activating the app to parents countrywide. We are still open to bringing on board more app installers and activators. All you are required to have is a smartphone with good internet access.
         </span>
     </p>
-
-    <!-- Get Started Section -->
-    <div id="getStartedSection">
-        <h2>Get trained for 10-15 minutes and START WORKING NOW!</h2>
-        <button id="getStartedButton" onclick="redirectToWhatsApp()" aria-label="Get Started">CLICK HERE TO GET STARTED!</button>
-    </div>
 
     <!-- Sign Up Section -->
     <div id="signUpSection">
@@ -212,23 +170,24 @@
 
         // Function to update the table with activators
         function updateTable() {
-            const table = document.getElementById("earnings-table");
+            const table = document.getElementById("earnings-table").getElementsByTagName('tbody')[0];
 
             // Clear existing rows
-            while (table.rows.length > 1) {
-                table.deleteRow(1);
+            while (table.rows.length > 0) {
+                table.deleteRow(0);
             }
 
-            // Add a new activator to the table
-            const activator = activators[currentIndex];
-            const newRow = table.insertRow(1);
-            const nameCell = newRow.insertCell(0);
-            const installationsCell = newRow.insertCell(1);
-            const earningsCell = newRow.insertCell(2);
+            // Add new activators to the table
+            activators.forEach(activator => {
+                const newRow = table.insertRow();
+                const nameCell = newRow.insertCell(0);
+                const installationsCell = newRow.insertCell(1);
+                const earningsCell = newRow.insertCell(2);
 
-            nameCell.textContent = activator.name;
-            installationsCell.textContent = activator.installations;
-            earningsCell.innerHTML = `<span class="earnings">Ksh. ${numberWithCommas(activator.installations * 50)}.00</span>`;
+                nameCell.textContent = activator.name;
+                installationsCell.textContent = activator.installations;
+                earningsCell.innerHTML = `<span class="earnings">Ksh. ${numberWithCommas(activator.installations * 50)}.00</span>`;
+            });
 
             // Move to the next activator
             currentIndex = (currentIndex + 1) % activators.length;
@@ -247,6 +206,33 @@
 
         // Start continuous update
         continuousUpdate();
+
+        // Function to generate activators with random data
+        function generateActivators(count) {
+            const activatorList = [];
+            for (let i = 1; i <= count; i++) {
+                const name = generateRandomName();
+                const installations = getRandomNumber(15, 50);
+                activatorList.push({ name, installations });
+            }
+            return activatorList;
+        }
+
+        // Function to generate a random number within a range
+        function getRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        // Function to generate random African-sounding names
+        function generateRandomName() {
+            const firstNames = ["Mercy", "Nancy", "Kennedy", "Lucas", "Dorris", "Aisha", "Adams", "Francis", "Kate", "Nyamweya", "Aisha", "Thabo", "Zanele"];
+            const lastNames = ["Wanjala", "Mutua", "Wafula", "Mwangi", "Karanja", "Were", "Kanake", "Koech", "Wambui", "Chakwera", "Manaseh", "Anyango"];
+
+            const randomFirstName = firstNames[Math.floor(Math.random() * firstNames.length)];
+            const randomLastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+
+            return `${randomFirstName} ${randomLastName}`;
+        }
 
         // Function to add commas to numbers for better readability
         function numberWithCommas(x) {
@@ -301,3 +287,4 @@
     </script>
 </body>
 </html>
+
