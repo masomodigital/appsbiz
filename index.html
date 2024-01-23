@@ -106,8 +106,8 @@
     <table id="earnings-table">
         <tr>
             <th>Name of Activator</th>
-            <th>No. of App Installations</th>
-            <th>Earnings Per Month</th>
+            <th>No. of Installations Today</th>
+            <th>Earnings Today (Ksh.)</th>
         </tr>
     </table>
 
@@ -142,7 +142,7 @@
             const activatorList = [];
             for (let i = 1; i <= count; i++) {
                 const name = generateRandomName();
-                const installations = getRandomNumber(300, 750);
+                const installations = getRandomNumber(15, 50);
                 activatorList.push({ name, installations });
             }
             return activatorList;
